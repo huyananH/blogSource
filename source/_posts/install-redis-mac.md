@@ -8,12 +8,13 @@ tags:
   -Redis
 ---
 <img src="/assets/postImg/redis_logo.png" width="350px" height="350px">
-### 一、前言
+### 1. 前言
 
 在安装Redis之前，先对Redis进行一个简单的了解。
 
-<!-- more -->
 Redis是一个完全免费开源的，遵守BSD协议，是一个高性能的key-value数据库。
+
+<!-- more -->
 
 解释：BSD协议
 
@@ -30,7 +31,7 @@ Redis 与其他 key - value 缓存产品有以下三个特点：
  * Redis支持数据的备份，即master-slave模式的数据备份。
 
 
-### 二、官网下载
+### 2. 官网下载
 
 *-- 在Redis下载最新稳定版本[点击这里](https://redis.io/)*
 
@@ -38,35 +39,35 @@ Redis 与其他 key - value 缓存产品有以下三个特点：
 
 <img src="/assets/postImg/download_redis.jpg" width="400px" height="350px">
 
-### 三、把压缩包解压，放入/usr/local
+### 3. 把压缩包解压，放入/usr/local
 
-### 四、切换到相应的目录下面
+### 4. 切换到相应的目录下面
 
 ```
 cd /usr/local/redis-4.0.2
 ```
 
-### 五、编译测试
+### 5. 编译测试
 
 ```
 sudo make test
 ```
 
-### 六、编译安装
+### 6. 编译安装
 
 ```
 sudo make install
 ```
 ![编译安装后的样子](/assets/postImg/make_install_redis.jpg)
 
-### 七、启动Redis
+### 7. 启动Redis
 
 ```
 redis-server
 ```
 ![启动redis的样子](/assets/postImg/redis_server.jpg)
 
-### 八、配置
+### 8. 配置
 
 1. 在Redis目录下建立bin、etc、db三个文件夹
   * 进入Redis根目录
@@ -123,17 +124,17 @@ appendonly no
 appendfsync everysec
 ```
 
-### 九、启动服务
+### 9. 启动服务
 ```
 ./bin/redis-server etc/redis.conf
 ```
-### 十、查看日志
+### 10. 查看日志
 ```
 tail -f log-redis.log
 ```
 ![查看日志](/assets/postImg/redis_log.jpg)
 
-### 十一、打开redis客户端
+### 11. 打开redis客户端
 ```
 ./bin/redis-cli
 ```
