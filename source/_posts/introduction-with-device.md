@@ -10,6 +10,8 @@ tags:
 
 本教程将引导你创建一个构建于Unity的完整项目，演示核心Windows全息和HoloLens功能，包括gaze(凝视)、gestures(手势)、voice input(语音输入)、spatial sound(空间声音)、spatial mapping(空间映射)，本教程将需要大约一小时。
 
+<!-- more -->
+
 ### 2. 准备
 
 安装了正确工具的Windows 10 的电脑。
