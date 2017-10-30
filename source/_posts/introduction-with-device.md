@@ -1,29 +1,12 @@
 ---
-title: Holograms 101E：介绍Emulator（模拟器）
-date: 2017-10-26 10:04:33
+title: Holograms 10:introduction With Device 介绍设备
+date: 2017-10-27 15:55:19
 comments: true
-reward: true
 tags:
-  -Emulator
-  -Holograms
+  -Holograms 10
 ---
 
-<img src="/assets/IntroductionWithEmulator.jpeg" width="350px" height="350px">
-
 ### 1. 前言
-
-朋友今天说，和我聊天全靠猜......
-
-他说聊天不是做阅读理解、完型填空......
-
-我能怎么办呢......
-
-我只能......
-
-<!-- more -->
-
-哈哈哈哈哈......
-
 
 本教程将引导你创建一个构建于Unity的完整项目，演示核心Windows全息和HoloLens功能，包括gaze(凝视)、gestures(手势)、voice input(语音输入)、spatial sound(空间声音)、spatial mapping(空间映射)，本教程将需要大约一小时。
 
@@ -101,27 +84,32 @@ tags:
 * 点击Select Folder。
 * 当Unity完成之后，会出现一个资源管理器窗口。
 * 打开App文件。
-* 使用Visual Studio打开Origami。
+* 打开（双击）Origami.sln。
 * 在Visual Studio的顶部工具栏，把Debug改为Release，把ARM改为X86。
- * 点击Device按钮旁边的旁边的向下的箭头，选择HoloLens Emulator。
- * 点击Debug->Start without debugging或者按Ctrl+F5。
- * 一段时间后Origami启动，第一次启动模拟器，它启动的时间最长可达15分钟，一旦开始，不要关闭它。
+* 点击Device按钮旁边的旁边的向下的箭头，选择Remote Machine(远程计算机)，通过Wi-Fi进行部署。
+  * 将Address（地址）设置为你的HoloLens的IP地址。如果你不知道你设备的IP地址，查看Settings->Network & Internet-> Advanced Options或者问Cortana,"你好，Cortana,我的IP地址是什么"。
+  * 如果HoloLens通过USB链接，你可以选择Device通过USB部署。
+  * 将Authentication Model(认证模式)设置为Universal(通用)。
+  * 点击Select（选择）。
+* 点击Debug->Start without debugging或者按Ctrl+F5，如果这是你的设备第一次进行部署，它将需要Visual Studio匹配。
+* 这个Origami项目将构建、部署到你的HoloLens，然后运行。
+* 戴上你的HoloLens四周看看，看看你的新全息图。
 
-#### 第二章-Gaze(凝视)
+#### 第二章 Gaze(凝视)
 
-这一章，我们将介绍三种与你的全息图交互的方法 --凝视。
+在这一章，我们将介绍与你的全息图交互的三种方法中的第一种-凝视
 
 ##### 目标
 
-* 使用world-locked光标可视化你的目光。
+用world-locked的光标可视化你的凝视。
 
 ##### 说明
 
 * 返回你的Unity项目，如果Build Settings一直开着，则把它关掉。
 * 在Porject面板中选中Holograms文件。
-* 拖Cursor对象到Hierarchy面板中的根目录。
+* 拖Cursor（光标）对象到Hierarchy面板中的根目录。
 * 双击Cursor去仔细查看。
-* 在Project面板右击Scripts文件。
+* 在Project面板右击Scripts（脚本）文件。
 * 点击子菜单中的Create。
 * 选择C# Script。
 * 把script命名为WorldCursor。注意：名字是区分大小写的，你不需要添加.cs文件。
@@ -129,17 +117,21 @@ tags:
 * 将WorldCursor拖到Inspector面板中。
 * 双击WorldCursor打开到Visual Studio。
 * 把下面的代码复制粘贴到WorldCursor.cs并保存。
+
 ```
 using UnityEngine;
+
 public class WorldCursor : MonoBehaviour
 {
     private MeshRenderer meshRenderer;
+
     // Use this for initialization
     void Start()
     {
         // Grab the mesh renderer that's on the same object as this script.
         meshRenderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -147,14 +139,18 @@ public class WorldCursor : MonoBehaviour
         // head position and orientation.
         var headPosition = Camera.main.transform.position;
         var gazeDirection = Camera.main.transform.forward;
+
         RaycastHit hitInfo;
+
         if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
         {
             // If the raycast hit a hologram...
             // Display the cursor mesh.
             meshRenderer.enabled = true;
-            // Move thecursor to the point where the raycast hit.
+
+            // Move the cursor to the point where the raycast hit.
             this.transform.position = hitInfo.point;
+
             // Rotate the cursor to hug the surface of the hologram.
             this.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
         }
@@ -171,7 +167,7 @@ public class WorldCursor : MonoBehaviour
 * 返回以前用于部署到模拟器的Visual Studio解决方案。
 * 当提示“Reload All”，选中。
 * 点击Debug->Start without debugging或者是按Ctrl+F5。
-* 用Xbox来查看周围的场景，注意游标如何与对象的形状进行交互。
+* 现在看看周围的场景，注意游标如何与对象的形状进行交互。
 
 #### 第三章-Gestures(手势)
 
@@ -187,21 +183,24 @@ public class WorldCursor : MonoBehaviour
 * 在Script文件，创建一个脚本，命名为GazeGestureManager。
 * 把GazeGestureManager脚本拖到Hierarchy面板中的OrigamiCollection对象中。
 * 使用Visual Studio打开GazeGestureManager脚本，并添加一下代码。
-
-###### GazeGestureManager.cs
 ```
 using UnityEngine;
 using UnityEngine.XR.WSA.Input;
+
 public class GazeGestureManager : MonoBehaviour
 {
     public static GazeGestureManager Instance { get; private set; }
+
     // Represents the hologram that is currently being gazed at.
     public GameObject FocusedObject { get; private set; }
+
     GestureRecognizer recognizer;
+
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         Instance = this;
+
         // Set up a GestureRecognizer to detect Select gestures.
         recognizer = new GestureRecognizer();
         recognizer.Tapped += (args) =>
@@ -214,15 +213,18 @@ public class GazeGestureManager : MonoBehaviour
         };
         recognizer.StartCapturingGestures();
     }
+
     // Update is called once per frame
     void Update()
     {
         // Figure out which hologram is focused this frame.
         GameObject oldFocusObject = FocusedObject;
+
         // Do a raycast into the world based on the user's
         // head position and orientation.
         var headPosition = Camera.main.transform.position;
         var gazeDirection = Camera.main.transform.forward;
+
         RaycastHit hitInfo;
         if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
         {
@@ -234,6 +236,7 @@ public class GazeGestureManager : MonoBehaviour
             // If the raycast did not hit a hologram, clear the focused object.
             FocusedObject = null;
         }
+
         // If the focused object changed this frame,
         // start detecting fresh gestures again.
         if (FocusedObject != oldFocusObject)
@@ -250,10 +253,9 @@ public class GazeGestureManager : MonoBehaviour
 * 把SphereCommands脚本拖到Hierarchy面板中的Sphere1对象中。
 * 把SphereCommands脚本拖到Hierarchy面板中的Sphere2对象中。
 * 用Visual Studio打开脚本编辑，用下面 的代码替换默认的代码：
-
-###### SphereCommands.cs
 ```
 using UnityEngine;
+
 public class SphereCommands : MonoBehaviour
 {
     // Called by GazeGestureManager when the user performs a Select gesture
@@ -275,7 +277,7 @@ public class SphereCommands : MonoBehaviour
 
 #### 第四章-声音
 
-这一章，我们将添加声音命令的支持：“Reset World”使掉落的球体回到原来的位置，“Drop sphere”使球体落下。
+这一章，我们将会添加语音命令的支持：“Reset world”使掉落的球体回到原来的位置，“Drop sphere”使球体落下。
 
 ##### 目标
 
@@ -284,21 +286,21 @@ public class SphereCommands : MonoBehaviour
 
 ##### 说明
 
-* 在Script文件，创建一个名为SpeechManager的脚本。
-* 把SpeechManager脚本拖到Hierarchy面板的OrigamiCollection对象中。
-* 使用Visual Studio代开SpeechManager脚本。
+* 在Script（脚本）文件，创建一个名为“SpeechManager”的脚本。
+* 拖“SpeechManager”脚本到Hierarchy下的OrigamiCollection下。
+* 用Visual Studio打开SpeechManager。
 * 复制粘贴以下代码带SpeechManager.cs并保存：
-
-###### SpeechManager.cs
 ```
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
+
 public class SpeechManager : MonoBehaviour
 {
     KeywordRecognizer keywordRecognizer = null;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
+
     // Use this for initialization
     void Start()
     {
@@ -307,6 +309,7 @@ public class SpeechManager : MonoBehaviour
             // Call the OnReset method on every descendant object.
             this.BroadcastMessage("OnReset");
         });
+
         keywords.Add("Drop Sphere", () =>
         {
             var focusObject = GazeGestureManager.Instance.FocusedObject;
@@ -316,12 +319,15 @@ public class SpeechManager : MonoBehaviour
                 focusObject.SendMessage("OnDrop", SendMessageOptions.DontRequireReceiver);
             }
         });
+
         // Tell the KeywordRecognizer about our keywords.
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
+
         // Register a callback for the KeywordRecognizer and start recognizing!
         keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
         keywordRecognizer.Start();
     }
+
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
         System.Action keywordAction;
@@ -394,12 +400,12 @@ public class SphereCommands : MonoBehaviour
 
 ##### 说明
 
-* 在Unity顶部菜单选中 Edit->Project Settings->Audio
+* 在Unity顶部菜单选中 Edit->Project Settings（Project设置）->Audio（）
 * 找到Spatializer Plugin设置，并选中MS HRTF Spatializer。
 * 从Holograms文件，拖一个Ambience对象放到Hierarchy面板的OrigamiCollection对象中。
 * 选择OrigamiCollection并找到Audio Source部分，更改一些属性：
-  * 选中Spatialize属性。
-  * 选中Play On Awake。
+  * 选中Spatialize（空间）属性。
+  * 选中Play On Awake（点击唤醒）。
   * 把Spatial Blend一直拖到右边。
   * 选中Loop。
   * 展开3D Sound Settings，在Doppler Level输入0.1。
@@ -409,14 +415,16 @@ public class SphereCommands : MonoBehaviour
 * 拖SphereSound到Hierarchy面板的Sphere1和Sphere2中。
 * 在Visual Studio中打开SphereSounds，修改代码并保存。
 
-##### SphereSounds.cs
 ```
 using UnityEngine;
+
 public class SphereSounds : MonoBehaviour
 {
     AudioSource impactAudioSource = null;
     AudioSource rollingAudioSource = null;
+
     bool rolling = false;
+
     void Start()
     {
         // Add an AudioSource component and set up some defaults
@@ -427,6 +435,7 @@ public class SphereSounds : MonoBehaviour
         impactAudioSource.dopplerLevel = 0.0f;
         impactAudioSource.rolloffMode = AudioRolloffMode.Logarithmic;
         impactAudioSource.maxDistance = 20f;
+
         rollingAudioSource = gameObject.AddComponent<AudioSource>();
         rollingAudioSource.playOnAwake = false;
         rollingAudioSource.spatialize = true;
@@ -435,10 +444,12 @@ public class SphereSounds : MonoBehaviour
         rollingAudioSource.rolloffMode = AudioRolloffMode.Logarithmic;
         rollingAudioSource.maxDistance = 20f;
         rollingAudioSource.loop = true;
+
         // Load the Sphere sounds from the Resources folder
         impactAudioSource.clip = Resources.Load<AudioClip>("Impact");
         rollingAudioSource.clip = Resources.Load<AudioClip>("Rolling");
     }
+
     // Occurs when this object starts colliding with another object
     void OnCollisionEnter(Collision collision)
     {
@@ -448,10 +459,12 @@ public class SphereSounds : MonoBehaviour
             impactAudioSource.Play();
         }
     }
+
     // Occurs each frame that this object continues to collide with another object
     void OnCollisionStay(Collision collision)
     {
         Rigidbody rigid = gameObject.GetComponent<Rigidbody>();
+
         // Play a rolling sound if the sphere is rolling fast enough.
         if (!rolling && rigid.velocity.magnitude >= 0.01f)
         {
@@ -465,6 +478,7 @@ public class SphereSounds : MonoBehaviour
             rollingAudioSource.Stop();
         }
     }
+
     // Occurs when this object stops colliding with another object
     void OnCollisionExit(Collision collision)
     {
@@ -561,7 +575,55 @@ public class TapToPlaceParent : MonoBehaviour
 ```
 
 * 导出，构建并部署App。
-* 现在，你可以通过使用选择手势（A或者空格键），然后移动到新的位置，再次使用手势，将游戏放在特定的位置。
+* 现在，你可以通过凝视，使用选择手势，然后移动到一个新的位置，再使用选择手势，将游戏放到一个特定的位置。
+
+#### 第七章-全息图乐趣
+
+##### 目标
+
+显示全息图underWorld的入口。
+
+##### 说明
+
+现在，我们将展示如何实现全息图的underWorld。
+* 在Project面板的Holograms文件夹：
+  * 拖UnderWorld到Hierarchy面板的OrigamiCollection。
+* 在Script文件夹，创建一个名为HitTarget的脚本。
+* 在Hierarchy面板，展开OrigamiCollection。
+* 展开Stage，并选择Target。
+* 拖HitTarget脚本到Target。
+* 用Visual Studio打开HitTarget，修改代码：
+
+##### HitTarget.cs
+```
+using UnityEngine;
+
+public class HitTarget : MonoBehaviour
+{
+    // These public fields become settable properties in the Unity editor.
+    public GameObject underworld;
+    public GameObject objectToHide;
+
+    // Occurs when this object starts colliding with another object
+    void OnCollisionEnter(Collision collision)
+    {
+        // Hide the stage and show the underworld.
+        objectToHide.SetActive(false);
+        underworld.SetActive(true);
+
+        // Disable Spatial Mapping to let the spheres enter the underworld.
+        SpatialMapping.Instance.MappingEnabled = false;
+    }
+}
+```
+
+* 在Unity，选择Target。
+* 在Hit Target目标组件上可以看到两个公共属性，并需要在场景中引用对象。
+  * 从Hierarchy面板的UnderWorld拖到HitTarget组件的Underworld属性。
+  * 拖Hierarchy面板的Stage收到Hit Target组件的Object to Hide。
+* 导出，构建并部署应用。
+* 将折纸集合放在地板上，然后用选择手势使球体落下。
+* 当球体集中目标（蓝色风扇）时，会发生爆炸，集合会被隐藏，underWorld会出现一个洞。
 
 #### 结束
 
