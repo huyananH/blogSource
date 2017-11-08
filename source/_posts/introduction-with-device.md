@@ -1,10 +1,12 @@
 ---
-title: Holograms 10:introduction With Device 介绍设备
+title: Holograms 101:introduction With Device 介绍设备
 date: 2017-10-27 15:55:19
 comments: true
 tags:
   -Holograms 10
 ---
+
+<img src="/assets/holoLens/Holograms101.jpg">
 
 ### 1. 前言
 

@@ -6,11 +6,13 @@ reward: true
 tags:
 ---
 
-<img src="/assets/holoLens/Holograms211.jpg" width="350px" height="350px">
+<img src="/assets/holoLens/Holograms211.jpg">
 
 ### 1. 前言
 
 手势将用户意识转变为动作。用手势，用户能与全息图交互。在这个教程中，我们将学习如何跟踪用户的瘦，响应用户的输入，并根据手的状态和位置给用户反馈。
+
+ <!-- more -->
 
 *-- 在[Holograms 101](https://developer.microsoft.com/en-us/windows/mixed-reality/holograms_101)*，我们用一个简单的air-tap手势与我们的全息图进行交互。现在，我们将超越air-tap手势，探索新概念：
 * 检测当用户的手被跟踪的时候，向用户提供反馈。
@@ -19,8 +21,6 @@ tags:
 * 用操作事件允许用户用他们的手移动全息图。
 
  *-- 在这个教程中，我们将再用我们在[Holograms 210](https://developer.microsoft.com/en-us/windows/mixed-reality/holograms_210)创建的Unity项目 ModelExplorer* 。我们的宇航员朋友回来帮助我们探索这些新的手势概念。
-
- <!-- more -->
 
 ### 2. 准备
 

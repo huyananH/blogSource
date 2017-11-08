@@ -8,24 +8,13 @@ tags:
   -Holograms
 ---
 
-<img src="/assets/IntroductionWithEmulator.jpeg" width="350px" height="350px">
+<img src="/assets/holoLens/Holograms101E.jpg">
 
 ### 1. 前言
 
-朋友今天说，和我聊天全靠猜......
-
-他说聊天不是做阅读理解、完型填空......
-
-我能怎么办呢......
-
-我只能......
+本教程将引导你创建一个构建于Unity的完整项目，演示核心Windows全息和HoloLens功能，包括gaze(凝视)、gestures(手势)、voice input(语音输入)、spatial sound(空间声音)、spatial mapping(空间映射)，本教程将需要大约一小时。
 
 <!-- more -->
-
-哈哈哈哈哈......
-
-
-本教程将引导你创建一个构建于Unity的完整项目，演示核心Windows全息和HoloLens功能，包括gaze(凝视)、gestures(手势)、voice input(语音输入)、spatial sound(空间声音)、spatial mapping(空间映射)，本教程将需要大约一小时。
 
 ### 2. 准备
 

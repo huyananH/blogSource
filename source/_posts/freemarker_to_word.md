@@ -9,7 +9,13 @@ tags:
   -Java
 ---
 
+<img src="/assets/postLog/freeMarkerToWordLog.jpeg" width="350px" height="350px">
+
 ### 1. 前言
+
+朋友今天说，和我聊天全靠猜......
+
+他说聊天不是做阅读理解、完型填空......
 
 <!-- more -->
 

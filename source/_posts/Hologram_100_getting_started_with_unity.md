@@ -9,7 +9,7 @@ tags:
 reward: true
 ---
 
-<img src="/assets/GettingStartUnityTitlePic.jpeg" width="350px" height="350px">
+<img src="/assets/holoLens/Holograms100.jpg">
 
 ### 1. 前言
 
