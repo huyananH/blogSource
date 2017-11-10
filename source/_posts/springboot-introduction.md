@@ -7,8 +7,15 @@ tags:
   - Spring Boot
 ---
 
+<img src="/assets/postLog/springboot_introduction.jpeg" width="350px" height="350px">
+
 ### 1. 前言
 
+今天坐在办公室，感觉有窒息了......
+
+发泄一下情绪而已，接下来回到正题......
+
+<!-- more-->
 
 ### 2. Spring Boot是什么
 
