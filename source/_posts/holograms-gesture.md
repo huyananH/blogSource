@@ -4,6 +4,8 @@ date: 2017-11-01 14:56:44
 comments: true
 reward: true
 tags:
+  - Holograms
+  - Gesture
 ---
 
 <img src="/assets/holoLens/Holograms211.jpg">

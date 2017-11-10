@@ -4,6 +4,8 @@ date: 2017-10-30 16:24:37
 comments: true
 reward: true
 tags:
+  - Holograms
+  - Gaze
 ---
 
 <img src="/assets/holoLens/Holograms210.jpg">

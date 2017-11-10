@@ -8,6 +8,7 @@ tags:
   -Redis
 ---
 <img src="/assets/postLog/installRedisMacLog.jpeg" width="350px" height="350px">
+
 ### 1. 前言
 
 在介绍今天主题之前，我先要分享一件比较有意思的事情......

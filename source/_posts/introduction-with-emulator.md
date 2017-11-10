@@ -4,8 +4,8 @@ date: 2017-10-26 10:04:33
 comments: true
 reward: true
 tags:
-  -Emulator
-  -Holograms
+  - Holograms
+  - Emulator
 ---
 
 <img src="/assets/holoLens/Holograms101E.jpg">
