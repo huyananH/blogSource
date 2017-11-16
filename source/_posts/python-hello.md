@@ -7,7 +7,13 @@ tags:
   -Python3
 ---
 
+<img src="/assets/postLog/pythonHelloLog.jpeg" width="350px" height="350px">
+
 ### 1. 前言
+
+这两天真的是觉得整个人都特别不好。
+
+<!-- more -->
 
 ### 2. 在MAC上下载Homebrew
 
