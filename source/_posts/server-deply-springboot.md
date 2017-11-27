@@ -49,14 +49,14 @@ apt-get install mysql-server
 netstat -tap|grep mysql
 ```
 如果出现以下情况，就是安装成功
-<![mysql安装成功](/assets/postImg/linux_mysql_success.jpg)
+![mysql安装成功](/assets/postImg/linux_mysql_success.jpg)
 
 * 查看mysql版本
 ```
 mysql -V
 ```
 结果为：
-<![查看mysql版本](/assets/postImg/linux_mysql_version.jpg)
+![查看mysql版本](/assets/postImg/linux_mysql_version.jpg)
 
 ### 4. 把sql文件导入
 * 使用FileZilla把sql文件放入服务器文件中，假设放到 /usr/data/video.sql目录下。
