@@ -8,9 +8,15 @@ tags:
 <img src="/assets/postLog/dockerReferenceLog.jpeg" width="350px" height="350px">
 ### 1. 前言
 
-Docker可以从Dockerfile读取指令自动生成镜像，Dockerfile是一个文本文档，其中包含了生成镜像所需要的所有命令。用 docker build 用户可以创建自动连续执行几个命令行的命令。
+说真的，每次总结这种，我就是这种状态......
+
+真的特别无聊。
+
+接下来，我总结一下Dockerfile的用法。
 
 <!-- more -->
+
+Docker可以从Dockerfile读取指令自动生成镜像，Dockerfile是一个文本文档，其中包含了生成镜像所需要的所有命令。用 docker build 用户可以创建自动连续执行几个命令行的命令。
 
 本页描述了你可以在Dockerfile使用的命令。当你读完这页之后，参考Docker *--[最佳实践](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)* 写。
 
