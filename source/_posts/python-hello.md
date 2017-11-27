@@ -1,5 +1,5 @@
 ---
-title: 在MAC上安装Python3，编写Hello，World。
+title: 在MAC上安装Python3，编写Hello，World!
 date: 2017-11-16 09:33:38
 comments: true
 tags:
