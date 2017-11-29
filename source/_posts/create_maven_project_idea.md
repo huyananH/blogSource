@@ -5,9 +5,9 @@ date: 2017-09-20 09:32:53
 comments: true
 toc: true
 tags:
-      -idea
-      -maven
-      -SpringBoot
+      - idea
+      - maven
+      - SpringBoot
 reward: true
 ---
 

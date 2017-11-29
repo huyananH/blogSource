@@ -4,8 +4,8 @@ date: 2017-11-08 13:02:24
 comments: true
 reward: true
 tags:
-  -Docker
-  -Images
+  - Docker
+  - Images
 ---
 
 <img src="/assets/postLog/installDockerLog.jpg" width="350px" height="365px">

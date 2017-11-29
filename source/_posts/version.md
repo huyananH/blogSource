@@ -4,7 +4,7 @@ date: 2017-10-26 09:18:49
 comments: true
 reward: true
 tags:
-  -版本号
+  - 版本号
 ---
 
 <img src="/assets/postLog/versionPic.jpeg" With="350px" height="350px">

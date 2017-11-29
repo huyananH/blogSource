@@ -4,9 +4,9 @@ date: 2017-10-23 13:42:34
 comments: true
 reward: true
 tags:
-  -SpringBoot
-  -Token
-  -Redis
+  - Spring Boot
+  - Token
+  - Redis
 ---
 
 ### 一、前言

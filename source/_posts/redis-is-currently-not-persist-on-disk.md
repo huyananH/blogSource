@@ -4,7 +4,7 @@ date: 2017-10-23 16:03:24
 comments: true
 reward: true
 tags:
-  -Redis
+  - Redis
 ---
 
 ### 一、前言

@@ -3,8 +3,8 @@ title: 在MAC下安装pip
 date: 2017-11-16 10:00:03
 comments: true
 tags:
-  -MAC
-  -pip
+  - MAC
+  - pip
 ---
 
 ### 1. 前言

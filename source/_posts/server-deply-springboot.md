@@ -143,3 +143,5 @@ java -version
 mvn spring-boot:run -Pdev
 ```
 参数： -P 选择运行环境
+
+### 8. 在外部的Tomcat上部署项目

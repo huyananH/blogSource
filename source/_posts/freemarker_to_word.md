@@ -4,9 +4,9 @@ date: 2017-10-20 22:07:19
 comments: true
 reward: true
 tags:
-  -FreeMarker
-  -Word
-  -Java
+  - FreeMarker
+  - Word
+  - Java
 ---
 
 <img src="/assets/postLog/freeMarkerToWordLog.jpeg" width="350px" height="350px">

@@ -4,8 +4,8 @@ date: 2017-10-23 09:28:21
 comments: true
 reward: true
 tags:
-  -MAC
-  -Redis
+  - MAC
+  - Redis
 ---
 <img src="/assets/postLog/installRedisMacLog.jpeg" width="350px" height="350px">
 

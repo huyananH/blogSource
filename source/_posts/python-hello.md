@@ -3,8 +3,8 @@ title: 在MAC上安装Python3，编写Hello，World!
 date: 2017-11-16 09:33:38
 comments: true
 tags:
-  -MAC
-  -Python3
+  - MAC
+  - Python3
 ---
 
 <img src="/assets/postLog/pythonHelloLog.jpeg" width="350px" height="350px">
