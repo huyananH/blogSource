@@ -3,7 +3,7 @@ title: Holograms 101:introduction With Device 介绍设备
 date: 2017-10-27 15:55:19
 comments: true
 tags:
-  -Holograms
+  - Holograms
 ---
 
 <img src="/assets/holoLens/Holograms101.jpg">
