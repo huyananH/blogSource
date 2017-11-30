@@ -5,7 +5,6 @@ comments: true
 reward: true
 tags:
   - Holograms
-  - Gesture
 ---
 
 <img src="/assets/holoLens/Holograms211.jpg">

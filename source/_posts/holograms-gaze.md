@@ -5,7 +5,6 @@ comments: true
 reward: true
 tags:
   - Holograms
-  - Gaze
 ---
 
 <img src="/assets/holoLens/Holograms210.jpg">

@@ -6,6 +6,8 @@ tags:
   - 框架
 ---
 
+<img src="/asstes/postLog/nodeExpressLog.jpeg" width="350px" height="350px">
+
 ### 前言
 
 以前，从没接触过动态语言，所以于我而言，Node.js学起来，还是没有那么简单的。
