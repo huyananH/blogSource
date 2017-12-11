@@ -6,18 +6,15 @@ tags:
   - 框架
 ---
 
-<img src="/asstes/postLog/nodeExpressLog.jpeg" width="350px" height="350px">
+<img src="/assets/postLog/nodeExpressLog.jpeg" width="350px" height="350px">
 
 ### 前言
 
-以前，从没接触过动态语言，所以于我而言，Node.js学起来，还是没有那么简单的。
-我怀揣着一颗好奇的心，开始学习Node.js。
+Grunt JavaScript构建工具
 
 <!-- more -->
 
 ### 1. npm
-
-在写node.js，见到了npm......
 
 npm是node的包管理器，我觉得它就类似于Maven。
 
