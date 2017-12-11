@@ -1,13 +1,13 @@
 ---
 layout: post
-title: 在idea新建一个Maven项目
+title: 在idea新建一个基于Maven的SpringBoot项目
 date: 2017-09-20 09:32:53
 comments: true
 toc: true
 tags:
       - idea
-      - maven
-      - SpringBoot
+      - Maven
+      - Spring Boot
 reward: true
 ---
 

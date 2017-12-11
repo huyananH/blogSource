@@ -2,7 +2,7 @@
 title: 服务器部署SpringBoot项目遇到的问题
 date: 2017-11-27 16:18:40
 tags:
-  - Spring boot
+  - Spring Boot
   - Deploy
 ---
 
