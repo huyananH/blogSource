@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 在idea新建一个基于Maven的SpringBoot项目
+title: IDEA 新建一个基于Maven的Spring Boot项目
 date: 2017-09-20 09:32:53
 comments: true
 toc: true
 tags:
-      - idea
+      - IDEA
       - Maven
       - Spring Boot
 reward: true
@@ -51,3 +51,51 @@ Package：包名
 
 ### 6. 选择项目路径
 <img src="/assets/ideaCreateMavenP/choiceProjPath.png" width="600px"; height="400px">
+
+点击finish完成
+
+### 7. 进入工作空间
+
+![生成之后的项目结构](/assets/postImg/enterProjectIDEA.jpg)
+
+删除.mvn mvnw mvnw.cmd
+![删除后的目录文件](/assets/postImg/deleteFileProjectIDEA.jpg)
+
+pom.xml添加tomcat依赖、设置jdk版本、设置Spring版本
+```
+<!-- 添加tomcat依赖 -->
+
+<dependencies>
+  <dependency>
+  	<groupId>org.springframework.boot</groupId>
+  	<artifactId>spring-boot-starter-tomcat</artifactId>
+  	<version>${spring.version}</version>
+  </dependency>
+</dependencies>
+
+<!-- 设置jdk版本 -->
+<!-- 设置spring版本 -->
+<properties>
+  <project.build.jdk>1.8</project.build.jdk>
+  <spring.version>1.5.9.RELEASE</spring.version>
+</properties>
+```
+
+pom.xml设置maven编译插件、测试插件surefire
+```
+<build>
+  <plugins>
+    <!-- 设置maven编译插件 -->
+    <!-- mvn install 默认使用的是javac1.3版本，使用以下方法指定版本 -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <configuration>
+        <source>${project.build.jdk}</source>
+        <target>${project.build.jdk}</target>
+        <encoding>${project.build.sourceEncoding}</encoding>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+```

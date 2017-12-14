@@ -1,5 +1,5 @@
 ---
-title: 在阿里云的Ubuntu服务器部署SpringBoot程序
+title: 在阿里云的Ubuntu服务器部署Spring Boot程序
 date: 2017-11-27 15:08:31
 tags:
   - Ubuntu

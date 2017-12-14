@@ -1,8 +1,8 @@
 ---
-title: 基于Maven的SpringBoot项目热部署
+title: 基于Maven的Spring Boot项目热部署
 date: 2017-12-05 13:54:11
 tags:
-  - SpringBoot
+  - Spring Boot
 ---
 
 ### 1. 前言

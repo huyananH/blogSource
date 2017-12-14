@@ -3,7 +3,6 @@ title: 一个菜鸟对Grunt的告白
 date: 2017-11-30 10:37:55
 tags:
   - Node.js
-  - 框架
 ---
 
 <img src="/assets/postLog/nodeExpressLog.jpeg" width="350px" height="350px">

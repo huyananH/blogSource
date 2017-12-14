@@ -1,5 +1,5 @@
 ---
-title: 基于Springboot及Redis的Token令牌
+title: 基于Spring Boot及Redis的Token令牌
 date: 2017-10-23 13:42:34
 comments: true
 reward: true
