@@ -275,3 +275,171 @@ tags:
   }
 
   ```
+
+  3. 实现TokenManager
+  ```
+  package cn.dfusion.token.utils.impl;
+
+  import cn.dfusion.config.Constant;
+  import cn.dfusion.token.entity.TokenModel;
+  import cn.dfusion.token.utils.TokenManager;
+  import org.springframework.beans.factory.annotation.Autowired;
+  import org.springframework.beans.factory.annotation.Qualifier;
+  import org.springframework.data.redis.core.RedisTemplate;
+  import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+  import org.springframework.stereotype.Component;
+
+  import java.util.UUID;
+  import java.util.concurrent.TimeUnit;
+
+  @Component(TokenManager.SERVER_NAME)
+  public class TokenManagerImpl implements TokenManager {
+
+
+      private RedisTemplate<Long,String> redis;
+
+      @Autowired
+      public void setRedis(@Qualifier("redisTemplate") RedisTemplate redis) {
+          this.redis = redis;
+          redis.setValueSerializer(new JdkSerializationRedisSerializer());
+
+      }
+
+      //创建Token
+      @Override
+      public TokenModel createToke(long userId) {
+          String token = UUID.randomUUID().toString().replace("-","");
+          TokenModel model = new TokenModel(userId, token);
+          //存入数据库
+          redis.boundValueOps(userId).set(token, Constant.TOKEN_EXPIRES_HOURS, TimeUnit.HOURS);
+          return model;
+      }
+
+      //检测Token是否有效
+      @Override
+      public boolean checkToken(TokenModel model) {
+          //如果model为空
+          if (null == model) {
+              return false;
+          }
+          String token = redis.boundValueOps(model.getUserId()).get();
+          //如果Token为空，或者Token和传回来的不同
+          if (null == token || !token.equals(model.getToken())) {
+              return false;
+          }
+          //如果有，则用户进行一次有效操作，延长时间
+
+          redis.boundValueOps(model.getUserId()).expire(Constant.TOKEN_EXPIRES_HOURS, TimeUnit.MINUTES);
+          return true;
+      }
+
+      //从字符串中解析Token
+      @Override
+      public TokenModel getToken(String authentication) {
+          if (null == authentication || authentication.length() == 0) {
+              return null;
+          }
+          //解析authentication
+          String[] param = authentication.split("_");
+          if (param.length !=2) {
+              return null;
+          }
+          Long userId = Long.parseLong(param[0]);
+          String token = param[1];
+          return new TokenModel(userId,token);
+      }
+
+      @Override
+      public void deleteToke(long userId) {
+          redis.delete(userId);
+      }
+  }
+
+  ```
+
+  4. 添加拦截器
+
+  ```
+  package cn.dfusion.token.authorization;
+
+  import cn.dfusion.config.Constant;
+  import cn.dfusion.token.entity.TokenModel;
+  import cn.dfusion.token.utils.TokenManager;
+  import org.springframework.beans.factory.annotation.Autowired;
+  import org.springframework.stereotype.Component;
+  import org.springframework.web.method.HandlerMethod;
+  import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+  import javax.servlet.http.HttpServletRequest;
+  import javax.servlet.http.HttpServletResponse;
+  import java.lang.reflect.Method;
+
+  @Component
+  public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
+
+      @Autowired
+      private TokenManager tokenManager;
+
+      @Override
+      public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+          //如果不映射到方法就直接返回
+          if (!(handler instanceof HandlerMethod)) {
+              return true;
+          }
+
+          //转换为方法
+          HandlerMethod handlerMethod = (HandlerMethod) handler;
+          Method method = handlerMethod.getMethod();
+
+          String authorization = request.getHeader(Constant.AUTHORIZATION);
+
+          TokenModel tokenModel = tokenManager.getToken(authorization);
+
+          if (tokenManager.checkToken(tokenModel)) {
+              request.setAttribute(Constant.CURRENT_USER_ID,tokenModel.getUserId());
+              return true;
+          }
+          //如果Token验证失败
+          if (method.getAnnotation(Authorization.class) !=null ) {
+              response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+              return false;
+          }
+          return true;
+
+      }
+  }
+
+  ```
+
+  5. 定义注解
+  ```
+  package cn.dfusion.demo.auth.token.authorization;
+
+  import java.lang.annotation.ElementType;
+  import java.lang.annotation.Retention;
+  import java.lang.annotation.RetentionPolicy;
+  import java.lang.annotation.Target;
+
+  /**
+   * 在Controller的方法上使用此注解，该方法在映射时会检查用户是否登录，未登录返回401错误
+   * @see com.scienjus.authorization.interceptor.AuthorizationInterceptor
+   * @author zwl
+   */
+  @Target(ElementType.METHOD)
+  @Retention(RetentionPolicy.RUNTIME)
+  public @interface Authorization {
+  }
+  ```
+
+### 四、redis常用命令
+
+* 查看所有key值
+```
+keys *
+```
+
+* 根据某个key查看value
+```
+get name
+```
+name为key
