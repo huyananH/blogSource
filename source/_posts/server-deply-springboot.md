@@ -35,7 +35,9 @@ apt-get
 
 * 下载mysql
 ```
-apt-get install mysql-server
+sudo apt-get install mysql-server
+sudo apt-get install mysql-client
+sudo apt-get install libmysqlclient-dev
 ```
 询问是否继续时，输入：Y
 在安装过程中，会弹出一个界面要求设置mysql的root密码，这里一定要设置，省的安完之后设置。
@@ -145,3 +147,40 @@ mvn spring-boot:run -Pdev
 参数： -P 选择运行环境
 
 ### 8. 在外部的Tomcat上部署项目
+
+#### 1. Ubuntu 安装 Tomcat
+  * *-- [下载Tomcat8.5](https://tomcat.apache.org/download-80.cgi)*
+  ![Tomcat下载](/assets/postImg/tomcat_download.jpg)
+  * 将 下载的tar.gz放到 Ubuntu 上，我放到了/usr
+  ```
+  tar -zxvf apache-tomcat-8.5.24.tar.gz
+  # 为文件夹重命名
+  mv apache-tomcat-8.5.24 tomcat
+  # 修改tomcat文件夹的使用权限
+  chmod 755 -R tomcat
+  ```
+
+  * 进入目录/usr/tomcat/bin，编辑文件startup.sh，在最后一行之前加入如下信息：
+  ```
+  # set java environment
+  export JAVA_HOME=/usr/lib/jvm/java1.8
+  export JRE_HOME=${JAVA_HOME}/jre
+  export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+  export PATH=${JAVA_HOME}/bin:$PATH
+
+  # tomcat
+  export CATALINA_HOME=/usr/tomcat
+  ```
+
+  * 启动tomcat
+  ```
+  ./startup.sh
+  ```
+  ![启动Tomcat](/assets/postImg/tomcat_startup.jpg)
+
+  * 浏览器访问
+  ![访问](/assets/postImg/tomcat_startup_success.jpg)
+
+  至此Tomcat就安装成功了
+
+#### 2. 把打包好的war包放到webapp，重启tomcat

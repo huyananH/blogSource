@@ -1,15 +1,16 @@
 ---
-title: 在MAC上安装Redis
+title: 安装Redis
 date: 2017-10-23 09:28:21
 comments: true
 reward: true
 tags:
   - MAC
+  - Ubuntu
   - Redis
 ---
 <img src="/assets/postLog/installRedisMacLog.jpeg" width="350px" height="350px">
 
-### 1. 前言
+### 一、 前言
 
 在介绍今天主题之前，我先要分享一件比较有意思的事情......
 
@@ -48,7 +49,9 @@ Redis 与其他 key - value 缓存产品有以下三个特点：
  * Redis支持数据的备份，即master-slave模式的数据备份。
 
 
-### 2. 官网下载
+### 二、在MAC下安装Redis
+
+#### 1. 官网下载
 
 *-- 在Redis下载最新稳定版本[点击这里](https://redis.io/)*
 
@@ -56,35 +59,35 @@ Redis 与其他 key - value 缓存产品有以下三个特点：
 
 <img src="/assets/postImg/download_redis.jpg" width="400px" height="350px">
 
-### 3. 把压缩包解压，放入/usr/local
+#### 2. 把压缩包解压，放入/usr/local
 
-### 4. 切换到相应的目录下面
+#### 3. 切换到相应的目录下面
 
 ```
 cd /usr/local/redis-4.0.2
 ```
 
-### 5. 编译测试
+#### 4. 编译测试
 
 ```
 sudo make test
 ```
 
-### 6. 编译安装
+#### 5. 编译安装
 
 ```
 sudo make install
 ```
 ![编译安装后的样子](/assets/postImg/make_install_redis.jpg)
 
-### 7. 启动Redis
+#### 6. 启动Redis
 
 ```
 redis-server
 ```
 ![启动redis的样子](/assets/postImg/redis_server.jpg)
 
-### 8. 配置
+#### 7. 配置
 
 1. 在Redis目录下建立bin、etc、db三个文件夹
   * 进入Redis根目录
@@ -141,19 +144,32 @@ appendonly no
 appendfsync everysec
 ```
 
-### 9. 启动服务
+#### 8. 启动服务
 ```
 ./bin/redis-server etc/redis.conf
 ```
-### 10. 查看日志
+#### 9. 查看日志
 ```
 tail -f log-redis.log
 ```
 ![查看日志](/assets/postImg/redis_log.jpg)
 
-### 11. 打开redis客户端
+#### 10. 打开redis客户端
 ```
 ./bin/redis-cli
 ```
 ![打开Redis客户端](/assets/postImg/redis_cli.jpg)
 执行Redis命令
+
+### 三、在Ubuntu安装Redis
+
+与MAC本安装的区别
+* 4. 编译
+```
+  make
+```
+这一步报错，安装make、gcc
+```
+apt-get install make
+apt-get install gcc
+```

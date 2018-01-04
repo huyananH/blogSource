@@ -29,6 +29,12 @@ tags:
 			<artifactId>spring-boot-starter-redis</artifactId>
 			<version>1.4.1.RELEASE</version>
 		</dependency>
+
+    <dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+
   ```
 
   2. 配置Redis，在application.properties文件中
@@ -357,7 +363,31 @@ tags:
 
   ```
 
-  4. 添加拦截器
+  4. 添加自定义拦截器
+  ```
+  package cn.dfusion.config;
+
+  import cn.dfusion.token.authorization.AuthorizationInterceptor;
+  import org.springframework.beans.factory.annotation.Autowired;
+  import org.springframework.context.annotation.Configuration;
+  import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+  import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+  @Configuration
+  public class MvcFilter extends WebMvcConfigurerAdapter{
+
+      @Autowired
+      private AuthorizationInterceptor authorizationInterceptor;
+
+
+      @Override
+      public void addInterceptors(InterceptorRegistry registry) {
+          registry.addInterceptor(authorizationInterceptor);
+      }
+
+  }
+
+  ```
 
   ```
   package cn.dfusion.token.authorization;
