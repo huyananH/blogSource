@@ -1,18 +1,25 @@
 ---
 title: Nginx 静态服务器
 date: 2017-12-26 12:56:59
+comments: true
 tags:
   - Nginx
 ---
 
-### 1. 下载Nginx源码
+<p><img src="/assets/ideaCreateMavenP/titlePic.png" width="350px" height="350px"></p>
+
+
+
+### 一、前言
+
+### 二、下载Nginx源码
 
 *-- [Nginx下载地址](https://nginx.org/en/download.html)*，下载Nginx源码，一般分为开发版和稳定版。
 <!-- more -->
 我下载的是红线勾的稳定版
 ![Nginx下载界面](/assets/postImg/nginxDownload.jpg)
 
-### 2. 安装
+### 三、安装
 
 * 安装zlib
 * 安装openssl
@@ -30,7 +37,7 @@ tags:
 --with-http_ssl_module \
 --add-module=/usr/local/src/nginx_upload_module-2.2.0
 
-### 3. 参数解释
+### 四、参数解释
 * 默认安装
 ```
 ./configure

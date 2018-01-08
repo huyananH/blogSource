@@ -38,7 +38,7 @@ http://www.123.com/index.html 调用 https://www.123.com/server.php （协议不
 
 ### 三、Spring Boot项目，跨域配置
 
-* 在项目中添加文件CorsConfig，代码如下
+* 在项目中添加文件CorsConfig.java，代码如下
 
 ```
 package cn.dfusion.demo.config;
