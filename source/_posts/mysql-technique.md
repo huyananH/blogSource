@@ -1,18 +1,26 @@
 ---
-title: Mysql开发技巧
+title: Mysql 开发技巧
 date: 2017-12-14 09:20:51
 tags:
   - Mysql
 ---
 
-### 1. 前言
+<img src="/assets/postImg/mysqlTechniqueLogo.jpeg" width="350px" height="350px">
 
-Sql语句我都忘的差不多了，温习一下
-这一部分是Join从句
+### 一、 前言
+
+今天看了一个笑话，和一个天津人谈恋爱就像在说相声
+>
+我：新的一年，希望你更喜欢我
+男朋友：那不废话么！
+我：希望以后还能一起做很多事
+男朋友：好嘞您
+
+哈哈哈......笑死了
 
 <!-- more -->
 
-### 2. Join从句
+### 二 Join从句
 * 内连接（INNER）
 * 全外连接（FULL OUTER）
 * 左外连接（LEFT OUTER）
@@ -74,3 +82,66 @@ select <select_list> from TableA A right join Table B on A.Key=B.Key;
 ```
 select <select_list> from TableA A cross join TableB。
 ```
+
+### 三、 如何进行行列的转换
+
+#### 1. 行转为列
+
+* 场景
+  * 报表统计
+  ![行转列的场景](/assets/postImg/rowchangecol.jpg)
+  Sql语句实现
+  ```
+  select a.user_name,kills from user1 a join user_kills b on a.id = b.user_id;
+  ```
+  * 汇总显示
+  ![行转列的场景](/assets/postImg/rowchangecol1.jpg)
+  Sql语句实现
+  ```
+  select a.user_name,sum(kills) from user1 a join user_kills b on a.id = b.user_id group by a.user_name;
+  ```
+
+* 处理方式
+![打怪数](/assets/postImg/killNumList.jpg)
+  * 使用Cross join实现（自连接）
+  Sql实现(复杂的，效率低，)
+  ```
+  select * from
+  (
+  select sum(kills) as '猪八戒' from user1 a join user_kills b on a.id = b.user_id and a.user_name = '猪八戒'
+  ) a cross join(
+  select sum(kills) as '孙悟空' from user1 a join user_kills b on a.id = b.user_id and a.user_name = '孙悟空'
+  ) b cross join(
+  select sum(kills) as '猪八戒' from user1 a join user_kills b on a.id = b.user_id and a.user_name = '孙悟空'
+  ) c
+  ```
+
+  * 使用Case语句实现
+  Sql语句实现
+  ```
+  select sum(case when a.user_name='孙悟空' then kills end) as '孙悟空',
+  sum(case when a.user_name='猪八戒' then kills end) as '猪八戒',
+  sum(case when a.user_name='沙僧' then kills end) as '沙僧'
+  from user1 a join user_kills b on a.id = b.user_id;
+  ```
+
+#### 2. 列转行
+* 场景
+  * 属性拆分
+  ![属性拆分](/assets/postImg/propertySplit.jpg)
+  * ETL数据处理
+  ![ETL数据处理](/assets/postImg/ETLDispose.jpg)
+
+* 使用序列表处理
+  * 需要生成一张序列表
+  ```
+  create table tb_sequence(id int auto_increment not null, primary key(id));
+  ```
+  * 添加数据
+  ```
+  insert into tb_sequence values(),(),(),(),(),();
+  ```
+  * 查询序列表
+  ```
+  select * from tb_sequence;
+  ```

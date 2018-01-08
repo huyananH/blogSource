@@ -19,7 +19,7 @@ tags:
 
 <!-- more -->
 
-### 二、*-- [配置LeanCloud](https://leancloud.cn/)*
+### 二、*- [配置LeanCloud](https://leancloud.cn/)*
 
 1. 点击右上角进入控制台
 ![leanCloud官网](/assets/postImg/leanCloud.jpg)
