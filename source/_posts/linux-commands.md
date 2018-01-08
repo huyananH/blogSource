@@ -5,12 +5,16 @@ tags:
   - Linux
 ---
 
+<p><img src="/assets/postImg/linuxcommandsLogo.jpeg" width="350px" height="350px"></p>
+
 ### 1. 前言
+
+现在的监考已经这么严了，幸好我已经毕业了......
+
+<!-- more -->
 
 Linux下的命令特别多，这篇我总结一下经常用的命令。
 顺便自己也记忆一下，每次用的时候都想不起来。
-
-<!-- more -->
 
 ## 一、文件管理
 

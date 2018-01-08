@@ -1,17 +1,20 @@
 ---
-title: 在MAC下安装pip
+title: 在MAC下安装Python包管理工具Pip
 date: 2017-11-16 10:00:03
 comments: true
 tags:
   - MAC
+  - Python
   - pip
 ---
 
-### 1. 前言
+<p><img src="/assets/postImg/macinstallpipLogo.jpeg" width="350px" height="350px"></p>
+
+### 一、 前言
 
 <!-- more -->
 
-### 2. 安装pip
+### 二、 安装pip
 
 MAC里面Python自带的easy_install，命令行输入以下命令
 ```

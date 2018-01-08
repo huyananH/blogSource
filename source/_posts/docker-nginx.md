@@ -6,16 +6,21 @@ tags:
   - Nginx
 ---
 
-<p><img src="/assets/ideaCreateMavenP/titlePic.png" width="350px" height="350px"></p>
-
-
+<p><img src="/assets/postImg/dockerNginxLogo.jpeg" width="350px" height="350px"></p>
 
 ### 一、前言
+
+第一次，看到小猪佩奇是因为我小外甥比较喜欢看。
+
+不知道的为什么，我始终觉得，真的很像吹风机。
+
+小孩儿的世界我真的不懂......
+
+<!-- more -->
 
 ### 二、下载Nginx源码
 
 *-- [Nginx下载地址](https://nginx.org/en/download.html)*，下载Nginx源码，一般分为开发版和稳定版。
-<!-- more -->
 我下载的是红线勾的稳定版
 ![Nginx下载界面](/assets/postImg/nginxDownload.jpg)
 

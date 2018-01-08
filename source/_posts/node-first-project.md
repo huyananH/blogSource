@@ -7,11 +7,18 @@ tags:
   - Scss
 ---
 
-### 前言
+<img src="/assets/postImg/nodefirstprojectLogo.jpeg" width="350px" height="350px">
+
+### 一、 前言
+
+今天，看到了一个笑话，是这样写的
+> 给每个员工发一只猫，离职的话要退还猫给公司，这样可以启动稳定团队的效果
+
+想想，很有道理，哈哈哈......
 
 <!-- more -->
 
-### 1. 生成应用骨架
+### 二、 生成应用骨架
 * 通过应用生成器工具 express 可以快速创建一个应用的骨架。
 通过如下命令安装：
 ```
@@ -104,7 +111,7 @@ npm install grunt-contrib-sass
 npm install grunt-contrib-cssmin
 ```
 
-### 2. 编写Gruntfile文件
+### 三、 编写Gruntfile文件
 
 例子：
 ```
