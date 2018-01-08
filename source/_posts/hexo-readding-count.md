@@ -5,7 +5,7 @@ tags:
   - LeanCloud
 ---
 
-<img src="/assets/postImg/hexoreaddingcountLogo.jpeg" >
+<img src="/assets/postImg/hexoreaddingcountLogo.jpeg" width="350px" height="350px">
 
 ### 一、 前言
 
