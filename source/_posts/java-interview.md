@@ -6,15 +6,17 @@ tags:
   - 面试
 ---
 
-### 1. 前言
+<img src="/assets/postImg/javaLogo.jpeg" width="350px" height="350px">
 
-不知道说什么.....
+### 一、 前言
+
+面试前的准备
 
 <!-- more -->
 
-### 2. 笔试题
+### 二、 笔试题
 
-* 1. Java中几种数据类型，各占多少字节
+* Java中几种数据类型，各占多少字节
   * a) 基本数据类型
     整型：short（1）、byte（2）、int（4）、long（8）
     字符型：char（2）
@@ -25,10 +27,10 @@ tags:
     类（class）
     接口（interface）
 
-* 2. String 能被继承吗？为什么？
+* String 能被继承吗？为什么？
 不可以。String是final，final类型的数据不可以被继承，实现细节不允许改变。
 
-* 3. String、StringBuffer、StringBuilder的区别
+* String、StringBuffer、StringBuilder的区别
   * a) 三者在执行速度方面的比较：StringBuilder > StringBuffer > String
   * b) String < (StringBuffer、StirngBuilder)的原因
     String 字符串常量
@@ -63,7 +65,7 @@ tags:
       StringBuilder 单线程操作字符串缓冲区下的大量数据
       StringBuffer  多线程操作字符串缓冲区下的大量数据
 
-* 4. 类的实例化顺序，比如：父类静态数据、构造方法、字段、子类静态数据、构造方法、字段，当new的时候，他们的执行顺序
+* 类的实例化顺序，比如：父类静态数据、构造方法、字段、子类静态数据、构造方法、字段，当new的时候，他们的执行顺序
   * a) 父类静态变量
   * b) 父类静态代码块
   * c) 子类静态变量
@@ -88,7 +90,7 @@ error是
   * 表示层
   * 应用层
 
-### 3. 面试题
+### 三、 面试题
 
 #### 1. 排序
 
