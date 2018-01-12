@@ -11,6 +11,8 @@ tags:
 
 今天，都笑不出来。
 
+<!-- more -->
+
 ### 二、 Shadowsocks使用Google
 
 1. Shadowsocks *- [点击下载](https://github.com/shadowsocks/ShadowsocksX-NG/releases)*
