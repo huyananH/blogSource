@@ -5,7 +5,6 @@ comments: true
 reward: true
 tags:
   - Holograms
-  - Emulator
 ---
 
 <img src="/assets/holoLens/Holograms101E.jpg">

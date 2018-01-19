@@ -3,8 +3,6 @@ title: 在MAC下安装Python包管理工具Pip
 date: 2017-11-16 10:00:03
 comments: true
 tags:
-  - MAC
-  - Python
   - pip
 ---
 

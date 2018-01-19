@@ -3,7 +3,6 @@ title: Ubuntu目录结构
 date: 2017-11-27 12:38:17
 tags:
   - Ubuntu
-  - 目录结构
 ---
 
 <img src="/assets/postLog/ubuntuLog.jpg" width="350px" height="350px">

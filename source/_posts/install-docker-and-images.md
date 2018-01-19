@@ -5,7 +5,6 @@ comments: true
 reward: true
 tags:
   - Docker
-  - Images
 ---
 
 <img src="/assets/postLog/installDockerLog.jpg" width="350px" height="365px">

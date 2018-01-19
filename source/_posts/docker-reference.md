@@ -2,7 +2,7 @@
 title: Dockerfile用法
 date: 2017-11-27 09:38:56
 tags:
-  - Dockerfile
+  - Docker
 ---
 
 <img src="/assets/postLog/dockerReferenceLog.jpeg" width="350px" height="350px">

@@ -3,7 +3,6 @@ title: Spring Boot 跨域配置
 date: 2018-01-04 13:41:12
 tags:
   - Spring Boot
-  - 跨域
 ---
 
 <p><img src="/assets/postImg/springbootCorsLogo.jpeg" width="350px" height="350px"></p>

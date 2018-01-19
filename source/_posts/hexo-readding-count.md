@@ -2,7 +2,7 @@
 title: Hexo 博客添加文章阅读量
 date: 2018-01-08 12:25:59
 tags:
-  - LeanCloud
+  - 博客
 ---
 
 <img src="/assets/postImg/hexoreaddingcountLogo.jpeg" width="350px" height="350px">

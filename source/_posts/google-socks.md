@@ -2,7 +2,7 @@
 title: Shadowsocks,一个不错的翻墙代理  --CentOS
 date: 2018-01-12 10:19:48
 tags:
-  - CentOS
+  - 翻墙代理
 ---
 
 <img src="/assets/postImg/googleSockLogo.jpeg" width="350px" height="350px">

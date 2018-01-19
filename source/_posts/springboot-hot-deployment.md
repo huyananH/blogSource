@@ -2,7 +2,6 @@
 title: Spring Boot项目热部署
 date: 2017-12-08 09:54:17
 tags:
-  - Java
   - Spring Boot
 ---
 

@@ -4,7 +4,6 @@ date: 2017-11-27 15:08:31
 tags:
   - Ubuntu
   - Spring Boot
-  - Deploy
 ---
 
 <img src="/assets/postLog/serverDeploySpringbootLog.jpeg" width="350px" height="350px">
