@@ -53,3 +53,34 @@ Logback是log4j框架的作者开发的新一代日志框架，它效率更高�
 * 日志内容
 
 实际开发中我们不需要直接添加该依赖，你会发现spring-boot-starter其中包含了 spring-boot-starter-logging，该依赖内容就是 Spring Boot 默认的日志框架 logback。
+
+### 三、 文件输出
+
+默认情况下，Spring Boot将日志输出到控制台，不会写到日志文件。如果要编写除控制台输出之外的日志文件，则需在application.properties中设置logging.file或logging.path属性。
+
+logging.file，设置文件，可以是绝对路径，也可以是相对路径。如：logging.file=my.log
+
+logging.path，设置目录，会在该目录下创建spring.log文件，并写入日志内容，如：logging.path=/var/log
+
+如果只配置 logging.file，会在项目的当前路径下生成一个 xxx.log 日志文件。
+
+如果只配置 logging.path，在 /var/log文件夹生成一个日志文件为 spring.log
+
+注：二者不能同时使用，如若同时使用，则只有logging.file生效
+默认情况下，日志文件大小达到10MB时会切分一次，产生新的日志文件，默认级别问ERROR、WARN、INFO
+
+### 四、 级别控制
+
+所有支持的日志记录系统都可以在Spring环境中设置记录级别（例如在application.properties中）
+
+格式为：'logging.level.* = LEVEL'
+
+logging.level：日志级别控制前缀，*为包名或Logger名
+
+LEVEL：选项TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
+
+举例：
+
+logging.level.com.dudu=DEBUG：com.dudu包下所有class以DEBUG级别输出
+
+logging.level.root=WARN：root日志以WARN级别输出
