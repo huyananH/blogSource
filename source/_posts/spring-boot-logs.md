@@ -24,12 +24,12 @@ DW：......
 
 哈哈哈哈哈，隔着屏幕有没有感觉到我的大笑......
 
+<!-- more -->
+
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=498139314&auto=1&height=66"></iframe>
 
 这个歌挺好听，但是版权原因只能放这个了......
 可以自己去搜听......
-
-<!-- more -->
 
 Spring Boot在所有内部日志中使用Commons Logging，但是默认配置也提供了对常用日志的支持，如：Java Util Logging，Log4J, Log4J2和Logback。每种Logger都可以通过配置使用控制台或者文件输出日志内容。
 
@@ -75,7 +75,7 @@ logging.path，设置目录，会在该目录下创建spring.log文件，并写�
 
 格式为：'logging.level.* = LEVEL'
 
-logging.level：日志级别控制前缀，*为包名或Logger名
+logging.level：日志级别控制前缀，# 为包名或Logger名
 
 LEVEL：选项TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
 
